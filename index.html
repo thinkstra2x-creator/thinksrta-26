@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS (for utility classes used in layout) -->
+  <!---- Tailwind CSS (for utility classes used in layout) -->
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Custom CSS -->
@@ -68,8 +68,9 @@
       <span class="badge-dot"></span>
       <span>Dr. SIVANTHI ADITANAR COLLEGE OF ENGINEERING</span>
     </div>
-    <h1 class="hero-title font-display reveal reveal-delay-1">THINKSTRA</h1>
-    <p class="hero-year reveal reveal-delay-2">'26</p>
+    <h1 class="hero-title font-display reveal reveal-delay-1">
+        <span class="text-stroke">THINK</span>STRA</span> '26
+      </h1>
     <p class="hero-subtitle reveal reveal-delay-3">
       Department of Artificial Intelligence & Data Science presents a national level technical symposium featuring cutting-edge competitions and workshops.
     </p>
@@ -102,7 +103,7 @@
         <div class="stat-label">Categories</div>
       </div>
       <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-number font-display">500+</div>
+        <div class="stat-number font-display">100+</div>
         <div class="stat-label">Expected Participants</div>
       </div>
       <div class="stat-card reveal reveal-delay-3">
@@ -152,10 +153,11 @@
             <path id="circle" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
           </defs>
           <text fill="var(--muted)" font-size="12" font-weight="600" letter-spacing="4">
-            <textPath href="#circle">INNOVATION • CREATIVITY • TECHNOLOGY • EXCELLENCE • </textPath>
-          </text>
+            <textPath href="#circle">•  INNOVATION  •  CREATIVITY  •  TECHNOLOGY  • </textPath>
+           </text>
         </svg>
-        <div class="center-logo font-display">TS</div>
+        <!-- Replaced text logo with image -->
+        <img src="logo.png" alt="THINKSTRA Logo" class="center-logo">
       </div>
     </div>
   </section>
@@ -169,7 +171,7 @@
     <div class="registration-box reveal">
       <div class="price-tag">
         <span class="price-currency">Rs.</span>
-        <span class="price-amount">250</span>
+        <span class="price-amount">200</span>
       </div>
       <p class="price-note">Entry fee for all events and activities</p>
       <div class="features-list">
@@ -179,7 +181,7 @@
               <path d="M20 6L9 17l-5-5"/>
             </svg>
           </div>
-          <span>Access to all events</span>
+          <span>Access to ONE Technical + Non Technical Events</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">
@@ -206,7 +208,7 @@
           <span>Exciting prizes</span>
         </div>
       </div>
-      <a href="#" class="btn btn-primary w-full justify-center">Register Now</a>
+      <a href="https://0x4q3gbs.forms.app/untitled-form-2" class="btn btn-primary w-full justify-center">Register Now</a>
     </div>
   </section>
 
@@ -225,7 +227,7 @@
       </div>
       <div class="footer-links">
         <h5>Contact</h5>
-        <a href="mailto:thinkstra26@gmail.com">thinkstra26@gmail.com</a>
+        <a href="mailto:thinkstra2x@gmail.com">thinkstra2x@gmail.com</a>
         <a href="tel:+919876543210">+91 98765 43210</a>
         <a href="#">Tiruchendur, Tamil Nadu</a>
       </div>
@@ -239,14 +241,14 @@
   <script>
     // Event Data
     const events = [
-      { id: 1, title: "Prompt Engineering", category: "technical", description: "Master the art of communicating with AI. Craft prompts that unlock the full potential of language models.", teamSize: "1-2", icon: "prompt" },
-      { id: 2, title: "Reverse Engineering", category: "technical", description: "Decode, analyze, and understand software systems. Test your debugging and analytical skills.", teamSize: "2-3", icon: "code" },
-      { id: 3, title: "Code Sprint", category: "technical", description: "Race against time to solve algorithmic challenges. Speed and accuracy matter equally.", teamSize: "1-2", icon: "terminal" },
-      { id: 4, title: "Tech Quiz", category: "technical", description: "Test your knowledge across technology, AI, and current tech trends. Brain battle awaits.", teamSize: "2", icon: "brain" },
-      { id: 5, title: "Act It Out", category: "nontechnical", description: "Showcase your dramatic skills in this exciting mimicry and acting competition.", teamSize: "2-4", icon: "drama" },
-      { id: 6, title: "Chess Championship", category: "nontechnical", description: "Strategic minds battle it out on the 64 squares. Checkmate your way to victory.", teamSize: "1", icon: "chess" },
-      { id: 7, title: "Photography", category: "nontechnical", description: "Capture the essence of the event through your lens. Theme-based photography contest.", teamSize: "1", icon: "camera" },
-      { id: 8, title: "Gaming Arena", category: "nontechnical", description: "Compete in popular esports titles. Show off your gaming skills and reflexes.", teamSize: "1-4", icon: "gamepad" }
+      { id: 1, title: "Prompt Engineering", category: "technical", description: "ABOUT", teamSize: "1", icon: "prompt" },
+      { id: 2, title: "Reverse Engineering", category: "technical", description: "ABOUT", teamSize: "1-2", icon: "code" },
+      { id: 3, title: "Paper Presentation", category: "technical", description: "ABOUT", teamSize: "2", icon: "terminal" },
+      { id: 4, title: "AI Quiz", category: "technical", description: "ABOUT", teamSize: "1-2", icon: "brain" },
+      { id: 5, title: "Act It Out", category: "nontechnical", description: "ABOUT.", teamSize: "2", icon: "drama" },
+      { id: 6, title: "Chess Championship", category: "nontechnical", description: "ABOUT", teamSize: "1", icon: "chess" },
+      { id: 7, title: "Chase The Clues", category: "nontechnical", description: "ABOUT", teamSize: "1-2", icon: "camera" },
+      { id: 8, title: "Link-It", category: "nontechnical", description: "ABOUT", teamSize: "1-2", icon: "gamepad" }
     ];
 
     // Icon SVGs
