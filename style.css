@@ -105,16 +105,15 @@ nav.scrolled { padding: 0.75rem 2rem; }
 }
 .nav-link:hover::after { width: 100%; }
 
-/* Hero Section */
+/* Hero Section - DESKTOP DEFAULT */
 .hero {
-  min-height: 100vh; /* Fallback for older browsers */
-  min-height: 100svh; /* Fix for mobile address bar issue */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Centered on Desktop */
   align-items: center;
   text-align: center;
-  padding: 6rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 2rem; /* Reduced top padding */
   position: relative;
 }
 
@@ -128,7 +127,7 @@ nav.scrolled { padding: 0.75rem 2rem; }
   border-radius: 100px;
   font-size: 0.875rem;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   backdrop-filter: blur(10px);
 }
 
@@ -161,7 +160,7 @@ nav.scrolled { padding: 0.75rem 2rem; }
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: var(--muted);
   max-width: 600px;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
@@ -347,30 +346,35 @@ footer { padding: 4rem 1.5rem 2rem; border-top: 1px solid var(--border); }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* ====================================================== */
-/* MOBILE OPTIMIZATION */
+/* MOBILE OPTIMIZATION - CRITICAL FIXES */
 /* ====================================================== */
 @media (max-width: 768px) {
-  /* FIX: Correct Hero spacing for mobile address bar */
+  /* 1. FIX HERO SPACING: Remove empty space, push content to top */
   .hero {
-    /* Use 'svh' (Small Viewport Height) to account for browser UI */
-    min-height: 100svh; 
-    /* Reduce top padding to remove empty space */
-    padding-top: 5rem; 
-    padding-bottom: 2rem;
+    min-height: auto; /* Remove forced height */
+    justify-content: flex-start; /* Align content to top */
+    padding-top: 6rem; /* Space for fixed navbar */
+    padding-bottom: 3rem;
   }
 
-  /* Remove blur effects for performance */
-  .backdrop-filter { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-  nav { background: rgba(10, 10, 15, 0.95); }
-  .hero-badge { background: rgba(20, 20, 30, 0.9); }
-  .stat-card, .event-card, .registration-box { background: rgba(20, 20, 30, 0.95); backdrop-filter: none; }
+  /* Remove extra margins inside hero to compact it */
+  .hero-badge { margin-bottom: 1rem; }
+  .hero-title { margin-bottom: 0.5rem; }
+  .hero-subtitle { margin-bottom: 1.5rem; }
+  
+  /* Hide scroll indicator on mobile */
+  .scroll-indicator { display: none; }
 
-  /* Stop heavy animations */
+  /* 2. PERFORMANCE: Remove blur/heavy effects */
+  .backdrop-filter { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  nav { background: rgba(10, 10, 15, 0.95); } /* Solid background */
+  .hero-badge, .stat-card, .event-card, .registration-box { background: rgba(20, 20, 30, 0.95); }
+
+  /* Stop animations */
   .gradient-orb { display: none; }
   .rotating-text { animation: none; }
-  .scroll-indicator { display: none; }
   
-  /* Simplify layout */
+  /* Layout adjustments */
   .about-visual { transform: scale(0.8); margin: 0 auto; }
   .event-card:hover { transform: none; } 
 }
