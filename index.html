@@ -10,10 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   
-  <!---- Tailwind CSS (for utility classes used in layout) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,10 +19,9 @@
   <div class="bg-scene">
     <div class="gradient-orb orb-1"></div>
     <div class="gradient-orb orb-2"></div>
-    <div class="gradient-orb orb-3"></div>
-    <div class="grid-pattern"></div>
-    <div class="noise"></div>
+    <div class="grid-pattern"></div> <!-- Removed noise div, handled by CSS -->
   </div>
+  <!-- Canvas is present but will only animate on Desktop -->
   <canvas id="particles"></canvas>
 
   <!-- Navigation -->
@@ -49,7 +45,7 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden flex-col items-center justify-center gap-8">
+  <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 hidden flex-col items-center justify-center gap-8">
     <button id="close-menu" class="absolute top-6 right-6 p-2" aria-label="Close menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -69,7 +65,7 @@
       <span>Dr. SIVANTHI ADITANAR COLLEGE OF ENGINEERING</span>
     </div>
     <h1 class="hero-title font-display reveal reveal-delay-1">
-        <span class="text-stroke">THINK</span>STRA</span> '26
+        <span class="text-stroke">THINK</span>STRA '26
       </h1>
     <p class="hero-subtitle reveal reveal-delay-3">
       Department of Artificial Intelligence & Data Science presents a national level technical symposium featuring cutting-edge competitions and workshops.
@@ -125,9 +121,7 @@
         <button class="tab-btn" data-tab="technical">Technical</button>
         <button class="tab-btn" data-tab="nontechnical">Non-Technical</button>
       </div>
-      <div class="events-grid" id="events-grid">
-        <!-- Events populated by JS -->
-      </div>
+      <div class="events-grid" id="events-grid"></div>
     </div>
   </section>
 
@@ -156,7 +150,6 @@
             <textPath href="#circle">•  INNOVATION  •  CREATIVITY  •  TECHNOLOGY  • </textPath>
            </text>
         </svg>
-        <!-- Replaced text logo with image -->
         <img src="logo.png" alt="THINKSTRA Logo" class="center-logo">
       </div>
     </div>
@@ -177,33 +170,25 @@
       <div class="features-list">
         <div class="feature-item">
           <div class="feature-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
           <span>Access to ONE Technical + Non Technical Events</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
           <span>Participation certificate</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
           <span>Lunch and refreshments</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
           <span>Exciting prizes</span>
         </div>
@@ -237,7 +222,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript (Optimized) -->
   <script>
     // Event Data
     const events = [
@@ -251,7 +236,6 @@
       { id: 8, title: "Link-It", category: "nontechnical", description: "ABOUT", teamSize: "1-2", icon: "gamepad" }
     ];
 
-    // Icon SVGs
     const icons = {
       prompt: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
       code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
@@ -263,7 +247,6 @@
       gamepad: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>`
     };
 
-    // Render events
     function renderEvents(filter = 'all') {
       const grid = document.getElementById('events-grid');
       const filteredEvents = filter === 'all' ? events : events.filter(e => e.category === filter);
@@ -278,8 +261,6 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
               <span>${event.teamSize} Members</span>
             </div>
@@ -296,7 +277,6 @@
       initReveal();
     }
 
-    // Tab functionality
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -305,31 +285,22 @@
       });
     });
 
-    // Scroll reveal
     function initReveal() {
       const reveals = document.querySelectorAll('.reveal');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('active');
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
       reveals.forEach(el => observer.observe(el));
     }
 
-    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
     });
 
-    // Mobile menu
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenuBtn = document.getElementById('close-menu');
@@ -351,12 +322,15 @@
       });
     });
 
-    // Particle system
+    // --- OPTIMIZED PARTICLE SYSTEM ---
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
     let mouseX = 0;
     let mouseY = 0;
+    
+    // Check if mobile
+    const isMobile = window.innerWidth < 768;
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -364,10 +338,7 @@
     }
 
     class Particle {
-      constructor() {
-        this.reset();
-      }
-
+      constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
@@ -376,25 +347,24 @@
         this.speedY = (Math.random() - 0.5) * 0.5;
         this.opacity = Math.random() * 0.5 + 0.2;
       }
-
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          this.x -= dx * 0.02;
-          this.y -= dy * 0.02;
+        // Mouse interaction only on desktop
+        if (!isMobile) {
+          const dx = mouseX - this.x;
+          const dy = mouseY - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            this.x -= dx * 0.02;
+            this.y -= dy * 0.02;
+          }
         }
-
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
         if (this.y < 0) this.y = canvas.height;
         if (this.y > canvas.height) this.y = 0;
       }
-
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -405,13 +375,18 @@
 
     function initParticles() {
       particles = [];
-      const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+      // Drastically reduce particles on mobile, or disable completely
+      // Using 0 for mobile to ensure smooth scroll
+      const count = isMobile ? 0 : Math.min(60, Math.floor((canvas.width * canvas.height) / 20000)); 
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }
     }
 
     function animateParticles() {
+      // If mobile, don't animate at all
+      if (isMobile) return; 
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(p => {
@@ -419,53 +394,53 @@
         p.draw();
       });
 
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 229, 199, ${0.1 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
+      // Reduce connection logic load
+      if (particles.length < 80) {
+        particles.forEach((p1, i) => {
+          particles.slice(i + 1).forEach(p2 => {
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 229, 199, ${0.05 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          });
         });
-      });
-
+      }
       requestAnimationFrame(animateParticles);
     }
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    if (!isMobile) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
+    // Re-check on resize
     window.addEventListener('resize', () => {
       resizeCanvas();
-      initParticles();
+      // Only re-init if switching from mobile to desktop
+      if (!isMobile && window.innerWidth >= 768) initParticles();
     });
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     resizeCanvas();
     initParticles();
-    if (!prefersReducedMotion) {
-      animateParticles();
-    }
+    if (!isMobile) animateParticles();
+    
     renderEvents();
     initReveal();
   </script>
